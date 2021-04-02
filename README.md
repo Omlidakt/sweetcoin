@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="https://i.ibb.co/7jt34Mg/Sweet-Coin.png">
-</p>
+<img align="center" src="https://i.ibb.co/7jt34Mg/Sweet-Coin.png">
 
 # Expleo Test: Christian Coyle
 
@@ -50,3 +48,52 @@ Usually, it is best practice to include authentication on the server side when c
 1. It is a `GET` request.
 2. It is a publicly accessible endpoint.
 3. Therefore I'm not worried about calling the API directly using JavaScript on the client, although I aim to adhere to any throttling limits as common courtesy.
+
+## Todolist
+
+ **Layout** (In Figma)
+ - [ ]  Block out Header, Nav, Main and Footer
+ - [ ] Decide on Header look and feel
+ - [ ] Decide on Nav look and feel
+ - [ ] Decide on Main look and feel
+ - [ ] Decide on Footer look and feel
+ 
+ **Components**
+ 
+ - [ ] List Container
+ - [ ] Coin Card
+	 - [ ] Header 
+		 - [ ] Name 
+		 - [ ] Symbol
+	- [ ] Sideline
+		 - [ ] Image
+	 - [ ] Footer
+		 - [ ] Current Price
+		 - [ ] Daily High
+		 - [ ] Daily Low
+ - [ ] Display extra information(main)
+	 - [ ] Header
+		 - [ ] Name 
+		 - [ ] Symbol
+		 - [ ] Hashing Algorithm
+	 - [ ] Body
+		- [ ] Description
+		- [ ] Market Cap
+		- [ ] Genesis Date
+		- [ ] Ticker Chart or Sparkline
+	 - [ ] Footer
+		 - [ ] Homepage
+
+**JavaScript**
+
+**Unit Testing Functions**
+
+
+## Resources
+[Web accessibility design guide by Alina Khazanova](https://elementor.com/blog/web-accessibility-design-guide)
+
+[Bootstrap CDN for 4.5.2 (Minified used)](https://www.bootstrapcdn.com)
+
+ 
+
+  
