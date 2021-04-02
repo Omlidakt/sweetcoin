@@ -1,4 +1,6 @@
-<p align="center" src="https://i.ibb.co/7jt34Mg/Sweet-Coin.png">
+<p align="center">
+  <img src="https://i.ibb.co/7jt34Mg/Sweet-Coin.png">
+</p>
 
 # Expleo Test: Christian Coyle
 
