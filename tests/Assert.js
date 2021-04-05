@@ -1,9 +1,9 @@
 class Assert
 {
-    constructor(description, functionToTest)
+    constructor(description, testable)
     {
         this.description = description;
-        this.functionToTest = functionToTest;
+        this.testable = testable;
 
         this.testPassed = "Test Passed";
         this.testFailed = "Test Failed";
@@ -11,22 +11,23 @@ class Assert
     
     equalsExactly(proposition)
     {
-        if(proposition === this.functionToTest)
+        if(proposition === this.testable)
             return this.testPassed;
-        else return `Error: Expected: ${proposition} of type:${typeof proposition }, instead got ${this.functionToTest} type:${typeof this.functionToTest}`;
+        else return `Error: Expected: ${proposition} of type:${typeof proposition }, instead got ${this.testable} type:${typeof this.testable}`;
     }
 
     contains(proposition)
     {
         if(typeof proposition === "string")
         {
-                if(this.functionToTest.includes(proposition))
+                if(this.testable.includes(proposition))
                 return this.testPassed;
-                else return `Error: Expected: ${proposition} of type:${typeof proposition }, instead got ${this.functionToTest} type:${typeof this.functionToTest}`; 
+                else return `Error: Expected: ${proposition} of type:${typeof proposition }, instead got ${this.testable} type:${typeof this.testable}`; 
         }
+        else return `Error: Type not expected: ${typeof proposition}`;
         if(typeof proposition === "object")
         {
-            let objectsReturnedFromFunction = Object.keys(this.functionToTest);
+            let objectsReturnedFromFunction = Object.keys(this.testable);
             let propositionKeystoString = Object.keys(proposition).toString().split(',');
 
             let wantedKeyWord = 0;
@@ -41,7 +42,19 @@ class Assert
             {
                 return this.testPassed + `\nNumber of Key Words found: ${wantedKeyWord}/${propositionKeystoString.length}`;
             }
-            else return `Error: Expected: ${Object.keys(proposition)} of type:${typeof proposition }, instead got ${objectsReturnedFromFunction} type:${typeof this.functionToTest}`;
+            else return `Error: Expected: ${Object.keys(proposition)} of type:${typeof proposition }, instead got ${objectsReturnedFromFunction} type:${typeof this.testable}`;
+        }
+        else return `Error: Type not expected: ${typeof proposition}`;
+    }
+    see(proposition)
+    {
+        if(proposition.includes("#"))
+        {
+            if(document.getElementById(`${proposition.substring(1)}`))
+            {
+                return this.testPassed;
+            }
+            else return `Error: Expected: ${proposition} of type:${typeof proposition }, instead got ${this.testable} type:${typeof this.testable}`; 
         }
     }
 
