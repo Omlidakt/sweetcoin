@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sweetcoin Christian Coyle Expelo Project</title>
+    <link rel="stylesheet" href="css/mini-default.min.css">
+
+
+</head>
+<style>
+    body {
+        /* background-image:url('https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579'); */
+      
+        background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
+    }
+    .hove:hover {
+        opacity:0;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <market-list id="marketListContainer">
+                    <div id="list" slot="list"></div>
+                </market-list>
+            </div>
+        <div class="row">   
+            <div class="col">
+            </div>
+        </div>
+
+
+    </div>
+</body>
+<script src="js/SimpleFetch.js"></script>
+<script src="components/MarketList.js"></script>
+<script src="components/CoinCard.js"></script>
+<script>
+let fetchFromCoinGecko = new SimpleFetch('https://api.coingecko.com/api/v3/');
+
+async function populateMarketList(page) {
+   let coinMarketStore = [];
+
+const priceInEUR = new Intl.NumberFormat('en-US', {
+  style: 'currency',
+  currency: 'EUR',
+});
+
+   let resultsFromCoinGecko =  await fetchFromCoinGecko.useEndpoint('coins/markets', `vs_currency=EUR&order=market_cap_desc&per_page=10&page=${page}`);
+    resultsFromCoinGecko.forEach((market) => {
+             coinMarketStore.push(`<coin-card>
+                    <h3 slot="coinName" style="background-image:url(${market.image}); background-size:contain; background-repeat: no-repeat; background-position:right">${market.name}<small slot="symbol">${market.symbol.toUpperCase()}</small></h3>
+                    <h4 slot="currentPrice">${priceInEUR.format(market.current_price)}</h4>
+                    <h3 slot="high24H">${priceInEUR.format(market.high_24h)}</h3>
+                    <h3 slot="low24H">${priceInEUR.format(market.low_24h)}</h3>
+                </coin-card>`);
+    });
+    console.log(resultsFromCoinGecko[0]);
+    document.getElementById('list').innerHTML = coinMarketStore.join('');
+}
+populateMarketList(1);
+</script>
+</html>
