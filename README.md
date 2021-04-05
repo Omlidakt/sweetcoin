@@ -88,6 +88,17 @@ Usually, it is best practice to include authentication on the server side when c
 
 **Unit Testing Functions**
 
+- [X] Assert Class
+	- [X] Deep Equals (Type checking)
+	- [X] Check if a string contains something of interest
+	- [X] Check the keys inside of an object
+- [X] Test Runner Class
+	- [X]  Store all the tests to be run
+	
+## Snag List
+
+I have to break down how I handle the components as separate elements.
+
 
 ## Resources
 [Web accessibility design guide by Alina Khazanova](https://elementor.com/blog/web-accessibility-design-guide)
