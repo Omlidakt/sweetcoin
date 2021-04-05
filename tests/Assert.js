@@ -24,7 +24,6 @@ class Assert
                 return this.testPassed;
                 else return `Error: Expected: ${proposition} of type:${typeof proposition }, instead got ${this.testable} type:${typeof this.testable}`; 
         }
-        else return `Error: Type not expected: ${typeof proposition}`;
         if(typeof proposition === "object")
         {
             let objectsReturnedFromFunction = Object.keys(this.testable);
@@ -75,6 +74,7 @@ class TestRunner
     {
         let testsFinished = 0;
         let testsPassed = 0;
+        console.log("-------- Begin Tests --------");
             for(let index = 0; index < this.tests.length; index++)
             {
                 console.log(this.tests[index].description);
@@ -82,6 +82,7 @@ class TestRunner
                 console.log(this.tests[index].test);
                 testsFinished++;
             }
+        console.log("-------- Tests Finished --------");
         return console.log(`Tests Finished: ${testsFinished} | Passed ${testsPassed}`);
 
     }
