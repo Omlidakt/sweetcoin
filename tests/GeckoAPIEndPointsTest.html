@@ -1,0 +1,22 @@
+<header>
+    <script src="Assert.js"></script>
+    <script src="../js/SimpleFetch.js"></script>
+</header>
+<script>
+let fetchCoinMarkets = new SimpleFetch('https://api.coingecko.com/api/v3/');
+
+async function TestingGreckoAPIEndPoint() {
+    const resultsOfFetchingCoinMarkets = await fetchCoinMarkets.useEndpoint('coins/markets', 'vs_currency=EUR&order=market_cap_desc&per_page=10');
+    let coinMarketDataTest = new Assert("take the first coin in the array", resultsOfFetchingCoinMarkets[0]); // first result
+
+    testRunner = new TestRunner();
+
+    testRunner.describe("I can get a list of currencies by market that contain all the values I require", 
+                        coinMarketDataTest.contains({image:'', name: '', symbol:'', current_price: 0, high_24h: 0, low_24h: 0}));
+    testRunner.run();
+}
+TestingGreckoAPIEndPoint();
+
+
+
+</script>
