@@ -1,5 +1,6 @@
+<p align="center">
 <img align="center" src="https://i.ibb.co/7jt34Mg/Sweet-Coin.png">
-
+</p>
 # Expleo Test: Christian Coyle
 
 ## How to get started
