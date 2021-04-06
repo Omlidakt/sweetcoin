@@ -17,7 +17,7 @@
         <div class="card fluid shadowed" id="coinInformationInsertionPoint"></div>
         </div>
     </div>
-    <div id="paginationControls">
+    <div id="paginationControls" class="paginationControls">
         <div>
             <small style="margin-left: 15%;"><b>Select Page</b></small>  
         </div>
@@ -34,6 +34,7 @@
 <script src="js/populateCoinDetailedInformation.js"></script>
 <script src="components/CoinCard.js"></script>
 <script>
+
 function toggleBetweenMarketAndCoinViews() {
         const flexMarketGrid = document.getElementById("flexMarketGrid");
         const flexCoinDetailedInformation = document.getElementById("flexCoinDetailedInformation");
@@ -41,14 +42,13 @@ function toggleBetweenMarketAndCoinViews() {
         if(flexMarketGrid.style.display === "none")
         {
             flexCoinDetailedInformation.style.display = "none";
-            flexMarketGrid.style.display = "grid"
+            flexMarketGrid.style.display = "grid";
             pagination.style.display = "block";
         } 
         else
         {
             flexMarketGrid.style.display = "none" 
             flexCoinDetailedInformation.style.display = "flex";
-            pagination.style.display = "none";
         }
     }
     

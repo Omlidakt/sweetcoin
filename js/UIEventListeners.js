@@ -3,6 +3,7 @@ document.getElementById('flexMarketGrid').addEventListener('click', (event) =>
     if (event.target.closest('coin-card'))
     {
         document.getElementById('flexMarketGrid').style.display = "none";
+        document.getElementById('paginationControls').style.display = "none";
         document.getElementById('flexCoinDetailedInformation').style.display = "flex";
     };
 }, false);
