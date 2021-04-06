@@ -2,7 +2,6 @@ document.getElementById('flexMarketGrid').addEventListener('click', (event) =>
 {
     if (event.target.closest('coin-card'))
     {
-        console.log(event.target.id)
         document.getElementById('flexMarketGrid').style.display = "none";
         document.getElementById('flexCoinDetailedInformation').style.display = "flex";
     };
