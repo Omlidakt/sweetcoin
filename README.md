@@ -13,6 +13,22 @@
 
 For brevity sake there is no server side code at all, it's designed to *just run*.
 
+
+## Features 
+**Frontend** 
+ - [X] Mobile First Design
+ - [X] Pleasing Aesthetics 
+ - [X] Contains the relevant information as per the API requests from CoinGecko.
+ - [X] Pagination
+
+**Unit Testing**
+- [X] Small unit testing class methods written by me so I wouldn't have to import and entire library.
+- [X]  Unit tests of API requests and page functionality.
+
+## Learnings and snags
+
+ 1. Using Web Components contains an obnoxious anti-pattern , you have to use`@import(my-global-css-here)`as the shadow DOM doesn't allow you to inherit a global stylesheet. Which sucks sometimes.
+
 ## Plan
 To build a single page application using HTML, CSS and JavaScript.
 
@@ -52,37 +68,36 @@ Usually, it is best practice to include authentication on the server side when c
 ## Todolist
 
  **Layout** (In Figma)
- - [ ]  Block out Header, Nav, Main and Footer
- - [ ] Decide on Header look and feel
- - [ ] Decide on Nav look and feel
- - [ ] Decide on Main look and feel
- - [ ] Decide on Footer look and feel
+ - [X]  Block out Header, Nav, Main and Footer
+ - [X] Decide on Header look and feel
+ - [X] Decide on Nav look and feel
+ - [X] Decide on Main look and feel
+ - [X] Decide on Footer look and feel
  
  **Components**
  
- - [ ] List Container
- - [ ] Coin Card
-	 - [ ] Header 
-		 - [ ] Name 
-		 - [ ] Symbol
-	- [ ] Sideline
-		 - [ ] Image
-	 - [ ] Footer
-		 - [ ] Current Price
-		 - [ ] Daily High
-		 - [ ] Daily Low
- - [ ] Display extra information(main)
-	 - [ ] Header
-		 - [ ] Name 
-		 - [ ] Symbol
-		 - [ ] Hashing Algorithm
-	 - [ ] Body
-		- [ ] Description
-		- [ ] Market Cap
-		- [ ] Genesis Date
-		- [ ] Ticker Chart or Sparkline
-	 - [ ] Footer
-		 - [ ] Homepage
+ - [X] List Container
+ - [X] Coin Card
+	 - [X] Header 
+		 - [X] Name 
+		 - [X] Symbol
+		 - [X] Image
+	 - [X] Footer
+		 - [X] Current Price (Formatted in EUR)
+		 - [X] Daily High
+		 - [X] Daily Low
+ - [X] Display extra information(main)
+	 (On the interaction with one of the cards)
+	 - [X] Header
+		 - [X] Name 
+		 - [X] Symbol
+		 - [X] Hashing Algorithm
+	 - [X] Body
+		- [X] Description
+		- [X] Market Cap
+		- [X] Genesis Date
+		- [ ] Ticker Chart or Sparkline (nice to have)
+		 - [X] Homepage (located in title of coin)
 
 **JavaScript**
 
@@ -95,15 +110,17 @@ Usually, it is best practice to include authentication on the server side when c
 - [X] Test Runner Class
 	- [X]  Store all the tests to be run
 	
-## Snag List
-
-I have to break down how I handle the components as separate elements.
+## User Flow
+1. The user is displayed with the markets on the page.
+2. If the user presses one of the markets it displays more information about that particular coin. 
+3. The list is hidden from view and the information is presented instead in a `<div>`.  
 
 
 ## Resources
 [Web accessibility design guide by Alina Khazanova](https://elementor.com/blog/web-accessibility-design-guide)
 
-[Bootstrap CDN for 4.5.2 (Minified used)](https://www.bootstrapcdn.com)
+[Mini.CSS (Minified used)](https://minicss.org/docs)
+
 
  
 

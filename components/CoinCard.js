@@ -11,7 +11,7 @@ templatec.innerHTML = `
     transition: 0.6s;
 }
 </style>
-<div class="card">
+<div class="card shadowed">
     <div class="section">
         <slot name="coinName"></slot>
         <slot name="symbol"></slot>

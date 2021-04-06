@@ -3,7 +3,6 @@
     <script src="../js/SimpleFetch.js"></script>
 </header>
 <body>
-  <div id="mooa">Moo</div>
 </body>
 <script>
 let fetchCoinMarkets = new SimpleFetch('https://api.coingecko.com/api/v3/');
@@ -29,16 +28,6 @@ async function TestingGreckoAPIEndPoint() {
     testRunner.run();
 }
 TestingGreckoAPIEndPoint();
-// TDD the Market List of various coins
-async function TDDFrontendMarketList()
-{
-  testRunner = new TestRunner();
-
-  
-
-  testRunner.run();
-}
-TDDFrontendDOM();
 
 
 

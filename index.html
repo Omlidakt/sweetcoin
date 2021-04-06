@@ -3,61 +3,55 @@
 <head>
     <title>Sweetcoin Christian Coyle Expelo Project</title>
     <link rel="stylesheet" href="css/mini-default.min.css">
-
-
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<style>
-    body {
-        /* background-image:url('https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579'); */
-      
-        background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
-    }
-    .hove:hover {
-        opacity:0;
-    }
-</style>
 <body>
+    <div id="loadingSymbol"></div>
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <market-list id="marketListContainer">
-                    <div id="list" slot="list"></div>
-                </market-list>
-            </div>
-        <div class="row">   
-            <div class="col">
-            </div>
+        <div id="flexMarketGrid" class="flex-market-grid fade-in"></div>
+
+        <div id="flexCoinDetailedInformation" class="col-sm-12 fade-in" style="display:none">
+            <section>
+                <button id="goBack" class="button primary" onClick="toggleBetweenMarketAndCoinViews()">Go Back</button>
+            </section>
+        <div class="card fluid shadowed" id="coinInformationInsertionPoint"></div>
+        </div>
+    </div>
+    <div id="paginationControls">
+        <div>
+            <small style="margin-left: 15%;"><b>Select Page</b></small>  
         </div>
 
-
+        <button class="paginationButton button primary" id="paginateBackwards"><</button>
+        <span id="currentPage">1</span>
+        <button class="paginationButton button primary" id="paginateForwards">></button>
     </div>
+    <img id="parallexBackground" src="isometric-business.png"></img>
 </body>
 <script src="js/SimpleFetch.js"></script>
-<script src="components/MarketList.js"></script>
+<script src="js/populateMarketList.js"></script>
+<script src="js/UIEventListeners.js"></script>
+<script src="js/populateCoinDetailedInformation.js"></script>
 <script src="components/CoinCard.js"></script>
 <script>
-let fetchFromCoinGecko = new SimpleFetch('https://api.coingecko.com/api/v3/');
-
-async function populateMarketList(page) {
-   let coinMarketStore = [];
-
-const priceInEUR = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'EUR',
-});
-
-   let resultsFromCoinGecko =  await fetchFromCoinGecko.useEndpoint('coins/markets', `vs_currency=EUR&order=market_cap_desc&per_page=10&page=${page}`);
-    resultsFromCoinGecko.forEach((market) => {
-             coinMarketStore.push(`<coin-card>
-                    <h3 slot="coinName" style="background-image:url(${market.image}); background-size:contain; background-repeat: no-repeat; background-position:right">${market.name}<small slot="symbol">${market.symbol.toUpperCase()}</small></h3>
-                    <h4 slot="currentPrice">${priceInEUR.format(market.current_price)}</h4>
-                    <h3 slot="high24H">${priceInEUR.format(market.high_24h)}</h3>
-                    <h3 slot="low24H">${priceInEUR.format(market.low_24h)}</h3>
-                </coin-card>`);
-    });
-    console.log(resultsFromCoinGecko[0]);
-    document.getElementById('list').innerHTML = coinMarketStore.join('');
-}
+function toggleBetweenMarketAndCoinViews() {
+        const flexMarketGrid = document.getElementById("flexMarketGrid");
+        const flexCoinDetailedInformation = document.getElementById("flexCoinDetailedInformation");
+        const pagination = document.getElementById("paginationControls");
+        if(flexMarketGrid.style.display === "none")
+        {
+            flexCoinDetailedInformation.style.display = "none";
+            flexMarketGrid.style.display = "grid"
+            pagination.style.display = "block";
+        } 
+        else
+        {
+            flexMarketGrid.style.display = "none" 
+            flexCoinDetailedInformation.style.display = "flex";
+            pagination.style.display = "none";
+        }
+    }
+    
 populateMarketList(1);
 </script>
 </html>

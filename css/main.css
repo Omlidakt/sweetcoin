@@ -1,0 +1,43 @@
+/*
+    Description: main.css contains the general styling logic to the single page application.
+*/
+body 
+{    
+background: linear-gradient(90deg, #9ebd13 0%, #008552 100%);
+}
+
+.flex-market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    align-items: center;
+}
+
+.fade-in {
+    animation: fadeIn ease 1s;
+}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+#paginationControls {
+    background-color: white;
+    border-radius: 0.2rem;
+    width: fit-content;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+}
+
+#parallexBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px;
+    height: 500px;
+    margin-top: -250px; /* Half the height */
+    margin-left: -250px; /* Half the width */
+    z-index: -999;
+}
