@@ -3,6 +3,9 @@
     <script src="../js/SimpleFetch.js"></script>
 </header>
 <body>
+    <div id="loadingSymbol"></div>
+    <h1>Open the console to see the results of the tests :)</h1>
+
 </body>
 <script>
 let fetchCoinMarkets = new SimpleFetch('https://api.coingecko.com/api/v3/');
@@ -14,7 +17,6 @@ async function TestingGreckoAPIEndPoint() {
 
     const resultsOfFetchingIndividualCoins  = await fetchCoinMarkets.useEndpoint(`coins/${resultsOfFetchingCoinMarkets[0].id}`, ''); // First result
     const coinDataTest = new Assert("Take the first coin available to me", resultsOfFetchingIndividualCoins);
-    const DOMTest = new Assert("Check for DOM elemets", null);
 
     // Testing the CoinGecko API
     testRunner = new TestRunner();
